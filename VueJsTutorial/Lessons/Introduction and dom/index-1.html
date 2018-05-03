@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>index-1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="changeTitle">
+        <h1 v-once>{{title}}</h1>
+        <p>{{name}}- Link: <a v-bind:href="link">Google</a></p>
+        <p>{{sayHello()}}</p>
+        <p>{{sayHelloFromData()}}</p>
+        <hr>
+        <p v-html="finishedLink"></p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Hello Ajit!',
+                name: 'Ajit',
+                link: 'https://www.google.com',
+                finishedLink: '<a href="https://www.google.com">Google</a>'
+            },
+            methods:{
+                changeTitle:function(event){
+                    this.title = event.target.value;
+                },
+                sayHello: function () {
+                    return "Hello World!";
+                },
+                sayHelloFromData: function () {
+                    return this.title;
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>
