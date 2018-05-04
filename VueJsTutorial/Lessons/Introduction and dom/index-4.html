@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index 4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="alert alert-success" @Click='isDanger=!isDanger' 
+        :class='{"alert alert-danger":isDanger}'>
+            <h4 class="alert-header">
+                Hello bootstrap
+            </h4>
+        </div>
+        <div @click='isDanger=!isDanger' :class="divClasses">
+            <h4 class="alert-header">
+                css magic
+            </h4>
+        </div>
+        <div :class="color">
+            <h4 class="alert-header">type the desired css class to change the css</h4>
+            <div class="alert-body">
+                <input type="text" v-model="color">
+            </div>
+        </div>
+        <div :class="[color,divClasses]">
+            <h4 class="alert-header">type the desired css class to change the css</h4>
+            <div class="alert-body">
+                <input type="text" v-model="color">
+            </div>
+        </div>
+        <div class="alert alert-info" :style="{backgroundColor:backColor}">
+            <h4 class="alert-header">type the desired css class to change the css</h4>
+            <div class="alert-body">
+                <input type="text" v-model="backColor">
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isDanger:false,
+                color:'alert-primary',
+                backColor:'red',
+            },
+            computed:{
+                divClasses:function(){
+                    return {
+                        "alert alert-primary":this.isDanger,
+                        "alert alert-success":!this.isDanger
+                    };
+                }
+
+            }
+
+        });
+    </script>
+</body>
+</html>
