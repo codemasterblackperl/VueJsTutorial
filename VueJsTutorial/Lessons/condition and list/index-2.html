@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Handling List</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+    <script src="E:/VueJsTutorial/VueJsTutorial/wwwroot/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='ingredient in ingredients' :key='ingredient'>{{ingredient}}</li>
+            <br>
+            <li v-for='(ingredient,i) in ingredients'>{{i}}: {{ingredient}}</li>
+        </ul>
+        <button @click='ingredients.push("spice")'>Add spices</button>
+        <hr>
+        <ul>
+            <li v-for='person in persons'>
+                <p v-for='(value,key) in person'>{{key}}:{{value}}</p>
+            </li>
+        </ul>
+        <hr>
+        <span v-for='n in maxNumber'>{{n}}&Tab;</span>
+        <br>
+        <button @click="maxNumber+=5">Add 5</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                maxNumber:10,
+                ingredients:['meat','fruit','cookies'],
+                persons:[
+                    {name:'Max',age:27,color:'red'},
+                    {name:'Anna',age:'unknown',color:'blue'}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <p>Can you see me?</p>
+        <template>
+            <p v-if='show'>You can see this</p>
+            <p v-else>Ha ha ha</p>
+            <p v-show='show'>Use v-show if you want the element to just hide not de-attach from dom</p>
+        </template>
+        <button v-on:click='show=false'>Yes</button>
+        <button @click='show=true'>No</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: false
+            },
+        });
+    </script>
+</body>
+
+</html>
